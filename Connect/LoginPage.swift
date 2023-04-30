@@ -12,7 +12,7 @@ struct LoginPage: View {
     @State var lastName = ""
     @State var major = ""
     @State var social = ""
-    @State var avatarSelection = "0"
+    @State var avatarSelection = "-1"
     
     @State var firstNameMissing = false
     @State var lastNameMissing = false
@@ -24,13 +24,6 @@ struct LoginPage: View {
     
     var body: some View {
         ZStack{
-            Circle()
-                .frame(width: 1000)
-                .foregroundColor(.themeCyan)
-            
-            Circle()
-                .frame(width: 500)
-                .foregroundColor(.white)
             
             
             VStack{
@@ -39,13 +32,14 @@ struct LoginPage: View {
                     .foregroundColor(.white)
                     .padding()
                     .padding(.top)
+                    .offset(y: 25)
                 
                 Spacer()
                 
                 VStack(alignment: .leading){
                     Text("First Name")
                         .font(.title3)
-                        .foregroundColor(.white)
+                        .foregroundColor(.themeCyan)
                         .padding(.top)
                         .padding(.leading, 5)
                     
@@ -86,13 +80,13 @@ struct LoginPage: View {
                         .shadow(radius: 2)
                         .border(self.majorMissing ?  Color.themeRed : Color.themeCyan, width: 2)
                     
-                    Text("Social")
+                    Text("Year")
                         .font(.title3)
                         .foregroundColor(.themeCyan)
                         .padding(.top)
                         .padding(.leading, 5)
                     
-                    TextField("@IG", text: self.$social)
+                    TextField("Sophmore", text: self.$social)
                         .padding()
                         .frame(width: UIScreen.main.bounds.width - 50)
                         .background(.white.opacity(0.5))
@@ -102,47 +96,36 @@ struct LoginPage: View {
                 }
                 
                 HStack{
-                    ZStack{
-                        Rectangle()
-                            .foregroundColor(.themeTan)
-                            .frame(width: UIScreen.main.bounds.width / 3 + 7, height: UIScreen.main.bounds.width / 3 + 7)
-                            .cornerRadius(10)
-                            .opacity(avatarSelection == "0" ? 1.0 : 0.0)
-                       
+                    ScrollView(.horizontal, showsIndicators: false){
+                        HStack{
+                            ForEach(0...5, id: \.self){index in
+                                ZStack{
+                                    Rectangle()
+                                        .foregroundColor(.white)
+                                        .frame(width: UIScreen.main.bounds.width / 3 + 7, height: UIScreen.main.bounds.width / 3 + 7)
+                                        .cornerRadius(10)
+                                        .opacity(avatarSelection == "\(index)" ? 1.0 : 0.0)
+                                   
+                                    
+                                    Image("Avt\(index + 1)")
+                                        .resizable()
+                                        .frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.width / 3)
+                                        .aspectRatio(contentMode: .fit)
+                                        .cornerRadius(10)
+                                    
+                                }
+                                .onTapGesture {
+                                    self.avatarSelection = "\(index)"
+                                }
+                            }
+                        }
+                        .padding(.horizontal)
                         
-                        Image("Avt1")
-                            .resizable()
-                            .frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.width / 3)
-                            .aspectRatio(contentMode: .fit)
-                            .cornerRadius(10)
-                        
-                    }
-                    .onTapGesture {
-                        self.avatarSelection = "0"
-                    }
-                    
-                    ZStack{
-                        Rectangle()
-                            .foregroundColor(.themeTan)
-                            .frame(width: UIScreen.main.bounds.width / 3 + 7, height: UIScreen.main.bounds.width / 3 + 7)
-                            .cornerRadius(10)
-                            .opacity(avatarSelection == "1" ? 1.0 : 0.0)
-                       
-                        
-                        Image("Avt2")
-                            .resizable()
-                            .frame(width: UIScreen.main.bounds.width / 3, height: UIScreen.main.bounds.width / 3)
-                            .aspectRatio(contentMode: .fit)
-                            .cornerRadius(10)
-                        
-                    }
-                    .onTapGesture {
-                        self.avatarSelection = "1"
                     }
                     
                 }
                 .padding()
-                .border(self.avatarMissing ?  Color.themeRed : Color.clear, width: 2)
+                .border(self.avatarMissing ?  Color.white : Color.clear, width: 2)
                 
                 Button{
                     checkInput()
@@ -195,7 +178,7 @@ struct LoginPage: View {
                 self.socialMissing = false
             }
             
-            if(self.avatarSelection == "2"){
+            if(self.avatarSelection == "-1"){
                 self.avatarMissing = true
             } else {
                 self.avatarMissing = false

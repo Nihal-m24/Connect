@@ -15,6 +15,7 @@ struct ContentView: View {
                 HomePage()
             } else {
                 LoginPage()
+               // LoginPageAlt()
             }
         }
         .padding()

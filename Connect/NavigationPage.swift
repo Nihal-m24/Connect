@@ -11,7 +11,7 @@ import NearbyInteraction
 struct NavigationPage: View {
     @EnvironmentObject var multipeerSession : MultipeerConnection
     @EnvironmentObject var nearbyInteraction : NearbyInteractionManager
-    
+    @Environment(\.presentationMode) var presentationMode
     @State var degree  = 0.0
     @State var distance : Float = 15.0
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -92,11 +92,14 @@ struct NavigationPage: View {
         .onChange(of: multipeerSession.peerSessionToken) { token in
             nearbyInteraction.start(token: token!)
         }
+        .onDisappear(){
+            multipeerSession.session.disconnect()
+        }
     
    }
     
     func convertMeters(distance: Float)->String{
-        let feet = distance * 3.28
+        let feet = distance * 3.28 * 10.0
         let answer = String(format: "%.2f", feet)
         return answer
     }

@@ -25,10 +25,13 @@ struct InvitationPage: View {
             
            
             
-            Image("Avt1")
+            Image("Avt\((Int(user.image) ?? 0 ) + 1)")
                 .resizable()
                 .frame(width: 250, height: 250)
                 .padding()
+                .onAppear(){
+                    print("Avt\(Int(user.image)! + 1)")
+                }
             
             
             //Name TEXT
@@ -121,7 +124,7 @@ struct InvitationPage: View {
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
         .background(Color.themeBlue)
         .onAppear(){
-            self.user = getUser(peerID: multipeerSession.recvdInviteFrom?.displayName ?? "Andrew%Garfield%Physics%1%Sophmore")
+            self.user = getUser(peerID: multipeerSession.recvdInviteFrom?.displayName ?? "Andrew%Garfield%Physics%4%Sophmore")
             DispatchQueue.main.asyncAfter(deadline: .now() + 30.0){
                 presentationMode.wrappedValue.dismiss()
             }
@@ -137,6 +140,7 @@ struct InvitationPage: View {
         let image = userInfoArray[3]
         let social = userInfoArray[4]
         let user = UserModel(firstName: String(firstName), lastName: String(lastName), major: String(major), image: String(image), social: String(social))
+        print(user)
         return user
     }
 }
