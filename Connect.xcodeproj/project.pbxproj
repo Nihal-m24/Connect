@@ -15,7 +15,10 @@
 		76AEDE6B29FD7B2E002A4429 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEDE6A29FD7B2E002A4429 /* LoginPage.swift */; };
 		76AEDE6D29FD7B3E002A4429 /* NavigationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEDE6C29FD7B3E002A4429 /* NavigationPage.swift */; };
 		76AEDE6F29FD7B60002A4429 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEDE6E29FD7B60002A4429 /* Extensions.swift */; };
-		76AEDE7129FD7B89002A4429 /* MultipeerConnectivty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEDE7029FD7B89002A4429 /* MultipeerConnectivty.swift */; };
+		76AEDE7129FD7B89002A4429 /* MultipeerConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEDE7029FD7B89002A4429 /* MultipeerConnectivity.swift */; };
+		76D1C8A329FD95E3007D0E73 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D1C8A229FD95E3007D0E73 /* UserModel.swift */; };
+		76D1C8A529FDD8AA007D0E73 /* NearbyInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D1C8A429FDD8AA007D0E73 /* NearbyInteraction.swift */; };
+		76D1C8A729FDDCD5007D0E73 /* CopyPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D1C8A629FDDCD5007D0E73 /* CopyPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +31,10 @@
 		76AEDE6A29FD7B2E002A4429 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		76AEDE6C29FD7B3E002A4429 /* NavigationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPage.swift; sourceTree = "<group>"; };
 		76AEDE6E29FD7B60002A4429 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		76AEDE7029FD7B89002A4429 /* MultipeerConnectivty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerConnectivty.swift; sourceTree = "<group>"; };
+		76AEDE7029FD7B89002A4429 /* MultipeerConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerConnectivity.swift; sourceTree = "<group>"; };
+		76D1C8A229FD95E3007D0E73 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		76D1C8A429FDD8AA007D0E73 /* NearbyInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyInteraction.swift; sourceTree = "<group>"; };
+		76D1C8A629FDDCD5007D0E73 /* CopyPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +73,11 @@
 				76AEDE6A29FD7B2E002A4429 /* LoginPage.swift */,
 				76AEDE6C29FD7B3E002A4429 /* NavigationPage.swift */,
 				76AEDE6E29FD7B60002A4429 /* Extensions.swift */,
-				76AEDE7029FD7B89002A4429 /* MultipeerConnectivty.swift */,
+				76AEDE7029FD7B89002A4429 /* MultipeerConnectivity.swift */,
+				76D1C8A429FDD8AA007D0E73 /* NearbyInteraction.swift */,
+				76D1C8A229FD95E3007D0E73 /* UserModel.swift */,
 				76AEDE5E29FD7AE8002A4429 /* Assets.xcassets */,
+				76D1C8A629FDDCD5007D0E73 /* CopyPage.swift */,
 				76AEDE6029FD7AE8002A4429 /* Preview Content */,
 			);
 			path = Connect;
@@ -153,9 +162,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				76AEDE6B29FD7B2E002A4429 /* LoginPage.swift in Sources */,
+				76D1C8A729FDDCD5007D0E73 /* CopyPage.swift in Sources */,
 				76AEDE6F29FD7B60002A4429 /* Extensions.swift in Sources */,
+				76D1C8A329FD95E3007D0E73 /* UserModel.swift in Sources */,
 				76AEDE5D29FD7AE6002A4429 /* ContentView.swift in Sources */,
-				76AEDE7129FD7B89002A4429 /* MultipeerConnectivty.swift in Sources */,
+				76D1C8A529FDD8AA007D0E73 /* NearbyInteraction.swift in Sources */,
+				76AEDE7129FD7B89002A4429 /* MultipeerConnectivity.swift in Sources */,
 				76AEDE6D29FD7B3E002A4429 /* NavigationPage.swift in Sources */,
 				76AEDE6929FD7AFB002A4429 /* HomePage.swift in Sources */,
 				76AEDE5B29FD7AE6002A4429 /* ConnectApp.swift in Sources */,
@@ -295,6 +307,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -324,6 +337,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

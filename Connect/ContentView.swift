@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var hasSignedUp = UserDefaults.standard.bool(forKey: "SignUpStat")
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            if(hasSignedUp){
+                HomePage()
+            } else {
+                LoginPage()
+            }
         }
         .padding()
     }
