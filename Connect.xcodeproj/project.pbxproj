@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76626F0E29FE0FA400E4D46B /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76626F0D29FE0FA400E4D46B /* LoginPage.swift */; };
+		76626F1129FE3A3200E4D46B /* LoginPageAlt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76626F1029FE3A3200E4D46B /* LoginPageAlt.swift */; };
+		76626F1329FE3F4600E4D46B /* InvitationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76626F1229FE3F4600E4D46B /* InvitationPage.swift */; };
 		76AEDE5B29FD7AE6002A4429 /* ConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEDE5A29FD7AE6002A4429 /* ConnectApp.swift */; };
 		76AEDE5D29FD7AE6002A4429 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEDE5C29FD7AE6002A4429 /* ContentView.swift */; };
 		76AEDE5F29FD7AE8002A4429 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76AEDE5E29FD7AE8002A4429 /* Assets.xcassets */; };
 		76AEDE6229FD7AE8002A4429 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76AEDE6129FD7AE8002A4429 /* Preview Assets.xcassets */; };
 		76AEDE6929FD7AFB002A4429 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEDE6829FD7AFB002A4429 /* HomePage.swift */; };
-		76AEDE6B29FD7B2E002A4429 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEDE6A29FD7B2E002A4429 /* LoginPage.swift */; };
 		76AEDE6D29FD7B3E002A4429 /* NavigationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEDE6C29FD7B3E002A4429 /* NavigationPage.swift */; };
 		76AEDE6F29FD7B60002A4429 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEDE6E29FD7B60002A4429 /* Extensions.swift */; };
 		76AEDE7129FD7B89002A4429 /* MultipeerConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AEDE7029FD7B89002A4429 /* MultipeerConnectivity.swift */; };
@@ -22,13 +24,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		76626F0D29FE0FA400E4D46B /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		76626F0F29FE107F00E4D46B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		76626F1029FE3A3200E4D46B /* LoginPageAlt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageAlt.swift; sourceTree = "<group>"; };
+		76626F1229FE3F4600E4D46B /* InvitationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationPage.swift; sourceTree = "<group>"; };
 		76AEDE5729FD7AE6002A4429 /* Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76AEDE5A29FD7AE6002A4429 /* ConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectApp.swift; sourceTree = "<group>"; };
 		76AEDE5C29FD7AE6002A4429 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		76AEDE5E29FD7AE8002A4429 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76AEDE6129FD7AE8002A4429 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		76AEDE6829FD7AFB002A4429 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
-		76AEDE6A29FD7B2E002A4429 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
 		76AEDE6C29FD7B3E002A4429 /* NavigationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPage.swift; sourceTree = "<group>"; };
 		76AEDE6E29FD7B60002A4429 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		76AEDE7029FD7B89002A4429 /* MultipeerConnectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerConnectivity.swift; sourceTree = "<group>"; };
@@ -67,10 +72,13 @@
 		76AEDE5929FD7AE6002A4429 /* Connect */ = {
 			isa = PBXGroup;
 			children = (
+				76626F0F29FE107F00E4D46B /* Info.plist */,
 				76AEDE5A29FD7AE6002A4429 /* ConnectApp.swift */,
 				76AEDE5C29FD7AE6002A4429 /* ContentView.swift */,
 				76AEDE6829FD7AFB002A4429 /* HomePage.swift */,
-				76AEDE6A29FD7B2E002A4429 /* LoginPage.swift */,
+				76626F0D29FE0FA400E4D46B /* LoginPage.swift */,
+				76626F1029FE3A3200E4D46B /* LoginPageAlt.swift */,
+				76626F1229FE3F4600E4D46B /* InvitationPage.swift */,
 				76AEDE6C29FD7B3E002A4429 /* NavigationPage.swift */,
 				76AEDE6E29FD7B60002A4429 /* Extensions.swift */,
 				76AEDE7029FD7B89002A4429 /* MultipeerConnectivity.swift */,
@@ -161,15 +169,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76AEDE6B29FD7B2E002A4429 /* LoginPage.swift in Sources */,
 				76D1C8A729FDDCD5007D0E73 /* CopyPage.swift in Sources */,
 				76AEDE6F29FD7B60002A4429 /* Extensions.swift in Sources */,
 				76D1C8A329FD95E3007D0E73 /* UserModel.swift in Sources */,
+				76626F1129FE3A3200E4D46B /* LoginPageAlt.swift in Sources */,
 				76AEDE5D29FD7AE6002A4429 /* ContentView.swift in Sources */,
 				76D1C8A529FDD8AA007D0E73 /* NearbyInteraction.swift in Sources */,
 				76AEDE7129FD7B89002A4429 /* MultipeerConnectivity.swift in Sources */,
 				76AEDE6D29FD7B3E002A4429 /* NavigationPage.swift in Sources */,
 				76AEDE6929FD7AFB002A4429 /* HomePage.swift in Sources */,
+				76626F1329FE3F4600E4D46B /* InvitationPage.swift in Sources */,
+				76626F0E29FE0FA400E4D46B /* LoginPage.swift in Sources */,
 				76AEDE5B29FD7AE6002A4429 /* ConnectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,7 +237,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -281,7 +291,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -302,6 +312,9 @@
 				DEVELOPMENT_TEAM = 3Q9BE9984B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Connect/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Connect With Peers Around You";
+				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "To Guide You To Peers";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -332,6 +345,9 @@
 				DEVELOPMENT_TEAM = 3Q9BE9984B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Connect/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Connect With Peers Around You";
+				INFOPLIST_KEY_NSNearbyInteractionUsageDescription = "To Guide You To Peers";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

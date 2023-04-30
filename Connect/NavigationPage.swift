@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
+import NearbyInteraction
 
 struct NavigationPage: View {
     @EnvironmentObject var multipeerSession : MultipeerConnection
+    @EnvironmentObject var nearbyInteraction : NearbyInteractionManager
+    
     @State var degree  = 0.0
-    @State var distance = 15
+    @State var distance : Float = 15.0
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    @State var connectedUser = UserModel(firstName: "John", lastName: "Doe", major: "English", image: "1")
+    @State var connectedUser = UserModel(firstName: "John", lastName: "Doe", major: "English", image: "1", social: "@IG")
     var body: some View {
         VStack{
             HStack{
@@ -28,11 +31,11 @@ struct NavigationPage: View {
                             .font(.title)
                             .foregroundColor(.white)
                     }
-                    
-                    
                 }
                 .padding()
+                .padding(.top, 50)
                 Spacer()
+                
             }
             
             HStack{
@@ -46,50 +49,63 @@ struct NavigationPage: View {
             .cornerRadius(30)
             .padding(.vertical)
             
-            Spacer()
-            
             
             HStack{
                 Image(systemName: "arrow.up")
-                    .font(.system(size: 220))
-                    .foregroundColor(.themeCyan)
-                    .onReceive(timer){time in
-                        changeDegree() 
-                    }
+                    .font(.system(size: 320))
+                    .foregroundColor(.themeTan)
             }
-            .rotationEffect(Angle(degrees: degree))
+            .rotationEffect(Angle(degrees: getAngle()))
+            .animation(.spring(), value: getAngle())
+            
+            Text("Get Closer For Directions")
+                .font(.title3)
+                .foregroundColor(.themeTan)
+                .opacity(getAngle() == 0.0 ? 1.0 : 0.0)
+                .animation(.spring(), value: getAngle())
             
             HStack{
-                Text("\(distance)")
-                    .foregroundColor(.themeTan)
+                Text("\(convertMeters(distance: nearbyInteraction.object?.distance ?? 99.00))")
+                    .foregroundColor(.themeRed)
                     .font(.title3)
-                    .frame(width: 30)
+                    .frame(width: 50)
                 
                 Text("Feet Away")
-                    .foregroundColor(.themeTan)
+                    .foregroundColor(.themeRed)
                     .font(.title3)
             }
-            .frame(width: UIScreen.main.bounds.width / 3)
+            .frame(width: UIScreen.main.bounds.width / 2)
             .padding(.vertical, 7)
             .padding(.horizontal)
             .background(Color.themeBlue)
             .cornerRadius(30)
             .padding(.vertical)
+            .offset(y: 100)
             
             Spacer()
         }
-        .background(Color.themeTan)
+        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        .background(Color.themeCyan)
+        .onAppear(){
+            multipeerSession.shareDiscoveryToken(data: multipeerSession.mySessionToken!)
+        }
+        .onChange(of: multipeerSession.peerSessionToken) { token in
+            nearbyInteraction.start(token: token!)
+        }
+    
+   }
+    
+    func convertMeters(distance: Float)->String{
+        let feet = distance * 3.28
+        let answer = String(format: "%.2f", feet)
+        return answer
     }
     
-    func changeDegree(){
-        withAnimation(.spring()) {
-            self.degree += Double(Int.random(in: -100...100))
-            self.distance += Int.random(in: -3...3)
-            if(distance < 0){
-                distance = 1
-            }
-        }
-   }
+    func getAngle()->Double{
+        let degree = (Double(nearbyInteraction.object?.direction?[0] ?? 0.00) * 100.0)  - (Double(nearbyInteraction.object?.direction?[1] ?? 0.00) * 100.0)
+        
+        return degree
+    }
     
     func getUserName(peerID: String)->String{
         let userInfoArray = peerID.split(separator: "%")

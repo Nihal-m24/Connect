@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-struct LoginPage: View {
+struct LoginPageAlt: View {
     @State var firstName = ""
     @State var lastName = ""
     @State var major = ""
     @State var social = ""
-    @State var avatarSelection = "0"
+    @State var avatarSelection = "2"
     
     @State var firstNameMissing = false
     @State var lastNameMissing = false
@@ -24,87 +24,68 @@ struct LoginPage: View {
     
     var body: some View {
         ZStack{
-            Circle()
-                .frame(width: 1000)
-                .foregroundColor(.themeCyan)
-            
-            Circle()
-                .frame(width: 500)
-                .foregroundColor(.white)
-            
-            
+           
             VStack{
                 Text("Sign Up")
                     .font(.largeTitle.bold())
-                    .foregroundColor(.white)
+                    .foregroundColor(Color.themeTan)
                     .padding()
-                    .padding(.top)
+                    .padding(.top, 50)
                 
-                Spacer()
+               
                 
-                VStack(alignment: .leading){
-                    Text("First Name")
-                        .font(.title3)
-                        .foregroundColor(.white)
-                        .padding(.top)
-                        .padding(.leading, 5)
-                    
-                    TextField("Johnny", text: self.$firstName)
+                VStack(alignment: .center){
+                    Rectangle()
+                        .frame(width: UIScreen.main.bounds.width - 75, height: 5)
+                        .foregroundColor(Color.themeBlue)
+                        .cornerRadius(30)
+                   
+                    TextField("First Name", text: self.$firstName)
                         .padding()
                         .frame(width: UIScreen.main.bounds.width - 50)
-                        .background(.white.opacity(0.5))
-                        .cornerRadius(10)
-                        .shadow(radius: 2)
-                        .border(self.firstNameMissing ?  Color.themeRed : Color.themeCyan, width: 2)
-                    
-                        
-                    Text("Last Name")
-                        .font(.title3)
-                        .foregroundColor(.themeCyan)
-                        .padding(.top)
-                        .padding(.leading, 5)
+                   
+                    Rectangle()
+                        .frame(width: UIScreen.main.bounds.width - 75, height: 5)
+                        .foregroundColor(Color.themeBlue)
+                        .cornerRadius(30)
                     
                     TextField("Appleseeds", text: self.$lastName)
                         .padding()
                         .frame(width: UIScreen.main.bounds.width - 50)
-                        .background(.white.opacity(0.5))
-                        .cornerRadius(10)
-                        .shadow(radius: 2)
-                        .border(self.lastNameMissing ?  Color.themeRed : Color.themeCyan, width: 2)
                     
-                    Text("Major")
-                        .font(.title3)
-                        .foregroundColor(.themeCyan)
-                        .padding(.top)
-                        .padding(.leading, 5)
+                    Rectangle()
+                        .frame(width: UIScreen.main.bounds.width - 75, height: 5)
+                        .foregroundColor(Color.themeBlue)
+                        .cornerRadius(30)
+                        
                     
                     TextField("English", text: self.$major)
                         .padding()
                         .frame(width: UIScreen.main.bounds.width - 50)
-                        .background(.white.opacity(0.5))
-                        .cornerRadius(10)
-                        .shadow(radius: 2)
-                        .border(self.majorMissing ?  Color.themeRed : Color.themeCyan, width: 2)
                     
-                    Text("Social")
-                        .font(.title3)
-                        .foregroundColor(.themeCyan)
-                        .padding(.top)
-                        .padding(.leading, 5)
+                    Rectangle()
+                        .frame(width: UIScreen.main.bounds.width - 75, height: 5)
+                        .foregroundColor(Color.themeBlue)
+                        .cornerRadius(30)
+                        
                     
                     TextField("@IG", text: self.$social)
                         .padding()
                         .frame(width: UIScreen.main.bounds.width - 50)
-                        .background(.white.opacity(0.5))
-                        .cornerRadius(10)
-                        .shadow(radius: 2)
-                        .border(self.socialMissing ?  Color.themeRed : Color.themeCyan, width: 2)
+                    
+                    Rectangle()
+                        .frame(width: UIScreen.main.bounds.width - 75, height: 5)
+                        .foregroundColor(Color.themeBlue)
+                        .cornerRadius(30)
+                        
                 }
+                .padding(.top)
+                .padding(.top)
                 
                 HStack{
                     ZStack{
                         Rectangle()
-                            .foregroundColor(.themeTan)
+                            .foregroundColor(.white)
                             .frame(width: UIScreen.main.bounds.width / 3 + 7, height: UIScreen.main.bounds.width / 3 + 7)
                             .cornerRadius(10)
                             .opacity(avatarSelection == "0" ? 1.0 : 0.0)
@@ -123,7 +104,7 @@ struct LoginPage: View {
                     
                     ZStack{
                         Rectangle()
-                            .foregroundColor(.themeTan)
+                            .foregroundColor(.white)
                             .frame(width: UIScreen.main.bounds.width / 3 + 7, height: UIScreen.main.bounds.width / 3 + 7)
                             .cornerRadius(10)
                             .opacity(avatarSelection == "1" ? 1.0 : 0.0)
@@ -142,20 +123,20 @@ struct LoginPage: View {
                     
                 }
                 .padding()
-                .border(self.avatarMissing ?  Color.themeRed : Color.clear, width: 2)
+                .border(self.avatarMissing ?  Color.white : Color.clear, width: 2)
                 
                 Button{
                     checkInput()
                 } label: {
                     Text("Sign Up")
-                        .foregroundColor(.themeCyan)
-                        .font(.title3)
+                        .foregroundColor(.themeRed)
+                        .font(.title.bold())
                         
                         
                 }
-                .frame(width: UIScreen.main.bounds.width - 50)
+                .frame(width: UIScreen.main.bounds.width - 75)
                 .padding(.vertical, 7)
-                .background(Color.white)
+                .background(Color.themeBlue)
                 .cornerRadius(10)
                 .shadow(radius: 2)
                 
@@ -163,7 +144,7 @@ struct LoginPage: View {
             }
         }
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-        .background(Color.themeBlue)
+        .background(Color.themeCyan)
         .fullScreenCover(isPresented: self.$completed) {
             HomePage()
         }
@@ -215,8 +196,8 @@ struct LoginPage: View {
     }
 }
 
-struct LoginPage_Previews: PreviewProvider {
+struct LoginPageAlt_Previews: PreviewProvider {
     static var previews: some View {
-        LoginPage()
+        LoginPageAlt()
     }
 }

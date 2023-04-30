@@ -10,6 +10,7 @@ import Foundation
 import MultipeerConnectivity
 import os
 import SwiftUI
+import NearbyInteraction
 
 class MultipeerConnection: NSObject, ObservableObject {
     private let serviceType = "connect-service"
@@ -27,6 +28,9 @@ class MultipeerConnection: NSObject, ObservableObject {
     @Published var recvdInviteFrom: MCPeerID? = nil
     @Published var paired: Bool = false
     @Published var invitationHandler: ((Bool, MCSession?) -> Void)?
+    
+    @Published var mySessionToken: Data? = nil
+    @Published var peerSessionToken : NIDiscoveryToken? = nil
     
     init(username: String) {
         let peerID = MCPeerID(displayName: username)
@@ -149,15 +153,16 @@ extension MultipeerConnection: MCSessionDelegate {
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        if let image = UIImage(data: data) {
-            log.info("didReceive Image")
-            // We received a move from the opponent, tell the GameView
-            DispatchQueue.main.async {
-                self.recievedImage = Image(uiImage: image)
-            }
-        } else {
-            log.info("didReceive invalid value \(data.count) bytes")
+        guard let token = try? NSKeyedUnarchiver.unarchivedObject(ofClass: NIDiscoveryToken.self, from: data)
+        else {
+            fatalError("Unexpectedly failed to encode discovery token.")
         }
+        
+        DispatchQueue.main.async {
+            self.peerSessionToken = token
+            print("Token Recived")
+        }
+        
     }
     
     public func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
@@ -176,3 +181,8 @@ extension MultipeerConnection: MCSessionDelegate {
         certificateHandler(true)
     }
 }
+
+//Nearby Interaction
+
+
+
